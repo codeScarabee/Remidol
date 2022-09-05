@@ -1,11 +1,11 @@
 import { useState, useContext } from 'react';
 import AppContext from '../Context/AppContext';
-import { FaTimes, FaEdit } from 'react-icons/fa';
+import { FaTimes } from 'react-icons/fa';
 
-function TaskCard({ task }) {
-  const [isCompleted, setIsCompleted] = useState(false);
+function CompletedCard({ task }) {
+  const [isCompleted, setIsCompleted] = useState(true);
   const [isHover, setIsHover] = useState(false);
-  const { tasks, detachCompleted, attachCompleted } = useContext(AppContext);
+  const { undoCompleted } = useContext(AppContext);
 
   const taskCardStyle = {
     color: isHover ? 'transparent' : '',
@@ -15,10 +15,8 @@ function TaskCard({ task }) {
 
   const taskCompleted = () => {
     setIsCompleted((prev) => !prev);
-    if (!isCompleted) {
-      detachCompleted(task);
-    } else {
-      attachCompleted(task);
+    if (isCompleted) {
+      undoCompleted(task);
     }
   };
 
@@ -35,11 +33,8 @@ function TaskCard({ task }) {
       <button className="close">
         <FaTimes size="1rem" color="red" />
       </button>
-      <button className="edit">
-        <FaEdit size="1rem" color="red" />
-      </button>
     </div>
   );
 }
 
-export default TaskCard;
+export default CompletedCard;

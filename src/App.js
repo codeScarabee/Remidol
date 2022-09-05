@@ -1,7 +1,9 @@
 import { AppProvider } from './Context/AppContext';
 import Header from './components/Header';
-import TasksList from './components/TasksList';
-import TaskStats from './components/TaskStats';
+import IncompletedList from './components/IncompletedList';
+import IncompleteStats from './components/IncompleteStats';
+import CompletedStats from './components/CompletedStats';
+import CompletedList from './components/CompletedList';
 import Card from './components/Card';
 
 function App() {
@@ -12,9 +14,10 @@ function App() {
         <Card>
           <h1>Hello World</h1>
         </Card>
-        <TaskStats />
-        <TasksList />
-        <TaskStats />
+        <IncompleteStats />
+        <IncompletedList />
+        <CompletedStats />
+        <CompletedList />
       </div>
     </AppProvider>
   );
