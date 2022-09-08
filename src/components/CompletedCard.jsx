@@ -5,12 +5,12 @@ import { FaTimes } from 'react-icons/fa';
 function CompletedCard({ task }) {
   const [isCompleted, setIsCompleted] = useState(true);
   const [isHover, setIsHover] = useState(false);
-  const { undoCompleted } = useContext(AppContext);
+  const { undoCompleted, deleteTask } = useContext(AppContext);
 
   const taskCardStyle = {
     color: isHover ? 'transparent' : '',
-    textShadow: isHover ? '0 0 #ff6a95' : '',
-    boxShadow: isHover ? '2px 2px 2px black' : '',
+    textShadow: isHover ? '0 0 gold' : '',
+    border: isHover && '2px solid gold',
   };
 
   const taskCompleted = () => {
@@ -30,7 +30,7 @@ function CompletedCard({ task }) {
     >
       <div className="num-display">{`${task.amount} ${task.unit}`}</div>
       <div className="text-display">{task.name}</div>
-      <button className="close">
+      <button className="close" onClick={(event) => deleteTask(event, task)}>
         <FaTimes size="1rem" color="red" />
       </button>
     </div>

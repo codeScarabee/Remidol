@@ -1,4 +1,4 @@
-import React from 'react';
+import { FaCartPlus } from 'react-icons/fa';
 
 function Header({ title, bgColor, textColor }) {
   const headerStyle = {
@@ -7,9 +7,8 @@ function Header({ title, bgColor, textColor }) {
   };
   return (
     <header style={headerStyle}>
-      <div className="container">
-        <h1>{title}</h1>
-      </div>
+      <FaCartPlus size={48} />
+      <h1>{title}</h1>
     </header>
   );
 }
@@ -17,6 +16,6 @@ function Header({ title, bgColor, textColor }) {
 Header.defaultProps = {
   title: 'To-Do List from default',
   bgColor: 'rgba(0,0,0,0.4)',
-  textColor: '#e44332',
+  textColor: 'gold',
 };
 export default Header;
