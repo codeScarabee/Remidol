@@ -1,21 +1,23 @@
 import { FaCartPlus } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
-function Header({ title, bgColor, textColor }) {
+function Header({ title, textColor }) {
   const headerStyle = {
-    backgroundColor: bgColor,
     color: textColor,
+    textDecoration: 'none',
   };
   return (
-    <header style={headerStyle}>
-      <FaCartPlus size={48} />
-      <h1>{title}</h1>
+    <header>
+      <Link style={headerStyle} to="/">
+        <FaCartPlus size={48} color="gold" />
+        <h1>{title}</h1>
+      </Link>
     </header>
   );
 }
 
 Header.defaultProps = {
   title: 'To-Do List from default',
-  bgColor: 'rgba(0,0,0,0.4)',
   textColor: 'gold',
 };
 export default Header;

@@ -10,15 +10,11 @@ function TaskForm() {
 
   const inputStyle = {
     visibility: isClicked ? 'visible' : 'hidden',
-    width: isClicked ? '100%' : '10%',
+    width: isClicked ? '100%' : '0',
     opacity: isClicked ? '1' : '0',
   };
   const btnStyle = {
     transform: isClicked ? 'scaleY(1)' : 'scaleY(-1)',
-  };
-  const selectStyle = {
-    visibility: isClicked ? 'visible' : 'hidden',
-    transition: isClicked && 'visibility 1s ease 0.7s',
   };
 
   const handleChange = (e) => {
@@ -29,8 +25,8 @@ function TaskForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { name, amount } = addTask;
-    if (name && amount) {
+    const { name, amount, unit } = addTask;
+    if (name && amount && unit) {
       addTask.id = uuidv4();
       addNewTask(addTask);
       setAddTask({ name: '', amount: '', unit: '' });
@@ -38,41 +34,42 @@ function TaskForm() {
       setIsClicked((prev) => !prev);
     }
   };
+
+  const data = ['Bread', 'Butter', 'Milk', 'Potatoes', 'Tomato', 'Oil', 'Eggs', 'Apples', 'Bananas'];
+  console.log(addTask);
   return (
     <form onSubmit={handleSubmit}>
-      <div className="input-group">
+      <div className="input-group" style={inputStyle}>
         <input
-          type="text"
-          style={inputStyle}
-          id="taskName"
+          list="data"
           name="name"
           value={addTask.name}
-          placeholder="What need to be done?"
+          placeholder="What are you going to buy?"
           onChange={handleChange}
         />
-
+        <datalist id="data">
+          {data.map((op) => (
+            <option key={op}>{op}</option>
+          ))}
+        </datalist>
         <input
           type="text"
-          style={inputStyle}
           id="amount"
           name="amount"
           value={addTask.amount}
           placeholder="Amount?"
           onChange={handleChange}
         />
-        <div className="unit-select" style={selectStyle}>
-          <label htmlFor="unit">Enter the unit</label>
-          <select id="unit" name="unit" value={addTask.unit} onChange={handleChange}>
-            <option value="">--choose--</option>
-            <option value="mg">mg</option>
-            <option value="g">g</option>
-            <option value="kg">kg</option>
-            <option value="oz">oz</option>
-            <option value="lb">lb</option>
-            <option value="ml">ml</option>
-            <option value="l">l</option>
-          </select>
-        </div>
+        <select name="unit" value={addTask.unit} onChange={handleChange}>
+          <option value="">--Unit--</option>
+          <option value="mg">mg</option>
+          <option value="g">g</option>
+          <option value="kg">kg</option>
+          <option value="oz">oz</option>
+          <option value="lb">lb</option>
+          <option value="ml">ml</option>
+          <option value="l">l</option>
+        </select>
       </div>
       <button type="submit" style={btnStyle}>
         {isClicked ? <FaArrowAltCircleDown size={48} color="gold" /> : <FaPlusCircle size={48} color="gold" />}
