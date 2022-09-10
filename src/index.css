@@ -297,4 +297,14 @@ footer {
   .container {
     max-width: 100%;
   }
+  .input-group {
+    flex-direction: column;
+  }
+  input[name='amount'],
+  select[name='unit'] {
+    width: 100px;
+  }
+  div.input-group > input[list] {
+    width: 250px;
+  }
 }
