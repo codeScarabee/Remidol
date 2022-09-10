@@ -36,7 +36,6 @@ function TaskForm() {
   };
 
   const data = ['Bread', 'Butter', 'Milk', 'Potatoes', 'Tomato', 'Oil', 'Eggs', 'Apples', 'Bananas'];
-  console.log(addTask);
   return (
     <form onSubmit={handleSubmit}>
       <div className="input-group" style={inputStyle}>

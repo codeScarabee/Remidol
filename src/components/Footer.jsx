@@ -1,14 +1,13 @@
 import React from 'react';
 
-function Footer({ title, bgColor, textColor }) {
+function Footer({ title, textColor }) {
   const footerStyle = {
-    backgroundColor: bgColor,
     color: textColor,
   };
   return (
     <footer style={footerStyle}>
       <div>
-        <small>Copyright &copy; 2022 {title} Technologies. All Rights Reserved </small>
+        <small>Copyright &copy; 2022 {title} Technologies.</small>
       </div>
       <small>Design By - CodeScarabee</small>
     </footer>
@@ -17,7 +16,6 @@ function Footer({ title, bgColor, textColor }) {
 
 Footer.defaultProps = {
   title: 'copyright 2022 from default',
-  bgColor: 'rgba(0,0,0,0.6)',
   textColor: 'gold',
 };
 

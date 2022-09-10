@@ -5,10 +5,16 @@ const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
   const [tasks, setTasks] = useState(tasksData);
+  const [taskEdit, setTaskEdit] = useState({ task: {}, edit: false });
   const [completedTasks, setCompletedTasks] = useState([]);
 
   const addNewTask = (newTask) => {
     setTasks((prev) => [newTask, ...prev]);
+  };
+
+  const editTask = (event, task) => {
+    event.stopPropagation();
+    setTaskEdit({ task, edit: true });
   };
 
   const deleteTask = (event, task) => {
@@ -28,12 +34,15 @@ export const AppProvider = ({ children }) => {
     setCompletedTasks(completedTasks.filter((item) => item !== task));
     setTasks([task, ...tasks]);
   };
+  console.log(taskEdit);
   return (
     <AppContext.Provider
       value={{
         tasks,
+        taskEdit,
         completedTasks,
         addNewTask,
+        editTask,
         deleteTask,
         detachCompleted,
         undoCompleted,

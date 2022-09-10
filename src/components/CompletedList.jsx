@@ -5,7 +5,6 @@ import CompletedCard from './CompletedCard';
 
 function CompletedList() {
   const { completedTasks } = useContext(AppContext);
-  console.log(completedTasks);
   return (
     <AnimatePresence>
       {completedTasks.map((task) => (

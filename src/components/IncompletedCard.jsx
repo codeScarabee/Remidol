@@ -5,7 +5,7 @@ import * as FaIcons from 'react-icons/fa';
 function IncompletedCard({ task }) {
   const [isCompleted, setIsCompleted] = useState(false);
   const [isHover, setIsHover] = useState(false);
-  const { detachCompleted, deleteTask } = useContext(AppContext);
+  const { detachCompleted, deleteTask, editTask } = useContext(AppContext);
 
   const taskCardStyle = {
     color: isHover ? 'transparent' : '',
@@ -34,7 +34,7 @@ function IncompletedCard({ task }) {
       <button className="close" onClick={(event) => deleteTask(event, task)}>
         <FaIcons.FaTimes size="1rem" color="red" />
       </button>
-      <button className="edit">
+      <button className="edit" onClick={(event) => editTask(event, task)}>
         <FaIcons.FaEdit size="1rem" color="#333" />
       </button>
     </div>
