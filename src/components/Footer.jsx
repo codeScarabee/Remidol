@@ -5,7 +5,14 @@ function Footer({ title, bgColor, textColor }) {
     backgroundColor: bgColor,
     color: textColor,
   };
-  return <footer style={footerStyle}>{title}</footer>;
+  return (
+    <footer style={footerStyle}>
+      <div>
+        <small>Copyright &copy; 2022 {title} Technologies. All Rights Reserved </small>
+      </div>
+      <small>Design By - CodeScarabee</small>
+    </footer>
+  );
 }
 
 Footer.defaultProps = {

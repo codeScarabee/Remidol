@@ -9,8 +9,8 @@ function Header({ title, textColor }) {
   return (
     <header>
       <Link style={headerStyle} to="/">
-        <FaCartPlus size={48} color="gold" />
-        <h1>{title}</h1>
+        <FaCartPlus size={38} color="gold" />
+        <h3>{title}</h3>
       </Link>
     </header>
   );

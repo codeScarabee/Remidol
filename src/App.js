@@ -13,7 +13,7 @@ function App() {
   return (
     <AppProvider>
       <Router>
-        <Header title="Grocery List" />
+        <Header title="Remidol" />
         <div className="container">
           <Routes>
             <Route exact path="/" element={<Home />} />
@@ -31,7 +31,7 @@ function App() {
             />
           </Routes>
         </div>
-        <Footer title="Copyright 2022 - All rights reserved" />
+        <Footer title="Remidol" />
       </Router>
     </AppProvider>
   );
