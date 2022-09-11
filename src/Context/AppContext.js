@@ -17,6 +17,11 @@ export const AppProvider = ({ children }) => {
     setTaskEdit({ task, edit: true });
   };
 
+  const updateTask = (id, updTask) => {
+    setTasks(tasks.map((task) => (task.id === id ? { ...task, ...updTask } : task)));
+    setTaskEdit({ task: {}, edit: false });
+  };
+
   const deleteTask = (event, task) => {
     if (window.confirm(`You Are Going To Delete This Task!`)) {
       setTasks(tasks.filter((item) => item !== task));
@@ -43,6 +48,7 @@ export const AppProvider = ({ children }) => {
         completedTasks,
         addNewTask,
         editTask,
+        updateTask,
         deleteTask,
         detachCompleted,
         undoCompleted,

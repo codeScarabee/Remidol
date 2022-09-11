@@ -4,10 +4,10 @@ import { v4 as uuidv4 } from 'uuid';
 import AppContext from '../Context/AppContext';
 
 function TaskForm() {
-  const [addTask, setAddTask] = useState({ name: '', amount: '', unit: '' });
+  const [addTask, setAddTask] = useState({ name: '', amount: '', unit: '', icon: '' });
   const [isClicked, setIsClicked] = useState(false);
   const [message, setMessage] = useState('');
-  const { addNewTask, taskEdit } = useContext(AppContext);
+  const { addNewTask, taskEdit, updateTask } = useContext(AppContext);
 
   const inputStyle = {
     visibility: isClicked ? 'visible' : 'hidden',
@@ -20,6 +20,7 @@ function TaskForm() {
 
   useEffect(() => {
     if (taskEdit.edit === true) {
+      setIsClicked(true);
       setAddTask({ ...taskEdit.task });
     }
   }, [taskEdit]);
@@ -38,10 +39,14 @@ function TaskForm() {
         setMessage('Name should be 15 characters or less');
       } else if (amount.length > 4) {
         setMessage('Amount should be 9999 or less');
+      } else if (taskEdit.edit === true) {
+        setAddTask(taskEdit.task);
+        updateTask(addTask.id, addTask);
+        setAddTask({ name: '', amount: '', unit: '', icon: '' });
       } else {
         addTask.id = uuidv4();
         addNewTask(addTask);
-        setAddTask({ name: '', amount: '', unit: '' });
+        setAddTask({ name: '', amount: '', unit: '', icon: '' });
         setMessage('');
       }
     } else {
