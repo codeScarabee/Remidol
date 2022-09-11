@@ -8,9 +8,6 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-image: url('../public/images/dark_wooden.jpg');
   background-color: #202026;
   color: #fff;
@@ -27,8 +24,8 @@ header {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 50px;
-  margin-bottom: 30px;
+  height: 3rem;
+  margin-bottom: 2rem;
   padding: 10px;
 }
 
@@ -46,16 +43,21 @@ header a:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 768px;
+  margin: 0 auto;
+  width: 50vw;
   height: 100vh;
 }
 
 .inner-container {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  height: 100%;
   padding: 20px;
   background-image: url(../public/images/shopping-cart.jpg);
+  background-size: cover;
   box-shadow: 15px 15px 15px 1px #000;
+  overflow: auto;
 }
 
 .nav {
@@ -68,7 +70,7 @@ header a:hover {
 
 .nav .child {
   background-color: #000000;
-  height: 360px;
+  height: 100%;
   overflow: hidden;
 }
 .child img {
@@ -93,9 +95,10 @@ header a:hover {
   text-shadow: 0 0 #333;
   border: 2px solid rgb(255, 255, 255);
   border-radius: 8px;
-  padding: 16px;
+  padding: 1rem;
   margin: 8px 0;
   position: relative;
+  box-shadow: 1px 1px 0px #000;
 }
 
 .card.reverse {
@@ -118,7 +121,7 @@ header a:hover {
 }
 
 .stats {
-  margin-top: 30px;
+  margin-top: 2rem;
   padding: 0 10px;
   color: #333;
   font-weight: bold;
@@ -129,11 +132,10 @@ header a:hover {
   background: gold;
   color: transparent;
   text-shadow: 0 0 rgb(0, 0, 0);
-  min-width: 50px;
-  padding: 10px;
+  min-width: 2.8rem;
   text-align: center;
-  border-radius: 15%;
   font-size: 1rem;
+  box-shadow: 1px 1px 0px #000;
   cursor: default;
 }
 
@@ -156,7 +158,7 @@ form button:hover {
 
 .message {
   color: red;
-  margin: 0 0 30px 10px;
+  margin: 0 0 2rem 10px;
 }
 
 .input-group {
@@ -212,7 +214,7 @@ input:focus {
 }
 
 .edit {
-  right: 58px;
+  right: 3.6rem;
 }
 
 .btn {
@@ -220,8 +222,8 @@ input:focus {
   border: 0;
   border-radius: 8px;
   color: #fff;
-  width: 100px;
-  height: 40px;
+  width: 6.25rem;
+  height: 2.5rem;
   cursor: pointer;
 }
 
@@ -233,7 +235,7 @@ footer {
   background-color: rgba(0, 0, 0, 0.7);
   width: 100%;
   padding: 10px;
-  margin-top: 30px;
+  margin-top: 2rem;
 }
 
 /* FIX: Remove position: absolute to keep about icon at the bottom of the
@@ -263,10 +265,10 @@ footer {
   margin: 10px 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 500px) {
   header svg {
     height: fit-content;
-    width: 28px;
+    width: 2rem;
   }
   header h3 {
     bottom: 6px;
@@ -275,7 +277,7 @@ footer {
     filter: none;
   }
   .container {
-    max-width: 90vw;
+    width: 98vw;
   }
 
   .input-group {
@@ -284,9 +286,9 @@ footer {
   }
   input[name='amount'],
   select[name='unit'] {
-    width: 100px;
+    width: 6.25rem;
   }
   div.input-group > input[list] {
-    width: 250px;
+    width: 15.6rem;
   }
 }

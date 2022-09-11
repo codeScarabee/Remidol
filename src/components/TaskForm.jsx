@@ -1,5 +1,5 @@
 import { FaPlusCircle, FaArrowAltCircleDown } from 'react-icons/fa';
-import { useState, useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import AppContext from '../Context/AppContext';
 
@@ -7,7 +7,7 @@ function TaskForm() {
   const [addTask, setAddTask] = useState({ name: '', amount: '', unit: '' });
   const [isClicked, setIsClicked] = useState(false);
   const [message, setMessage] = useState('');
-  const { addNewTask } = useContext(AppContext);
+  const { addNewTask, taskEdit } = useContext(AppContext);
 
   const inputStyle = {
     visibility: isClicked ? 'visible' : 'hidden',
@@ -17,6 +17,12 @@ function TaskForm() {
   const btnStyle = {
     transform: isClicked ? 'scaleY(1)' : 'scaleY(-1)',
   };
+
+  useEffect(() => {
+    if (taskEdit.edit === true) {
+      setAddTask({ ...taskEdit.task });
+    }
+  }, [taskEdit]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -66,18 +72,19 @@ function TaskForm() {
             id="amount"
             name="amount"
             value={addTask.amount}
-            placeholder="Amount?"
+            placeholder="Amount"
             onChange={handleChange}
           />
           <select name="unit" value={addTask.unit} onChange={handleChange}>
-            <option value="">--Unit--</option>
-            <option value="mg">mg</option>
+            <option value="">Unit</option>
+            <option value="box">box</option>
             <option value="g">g</option>
+            <option value="mg">mg</option>
             <option value="kg">kg</option>
-            <option value="oz">oz</option>
             <option value="lb">lb</option>
             <option value="ml">ml</option>
             <option value="l">l</option>
+            <option value="oz">oz</option>
           </select>
         </div>
         <button type="submit" style={btnStyle}>
