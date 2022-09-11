@@ -13,25 +13,25 @@ function App() {
   return (
     <AppProvider>
       <Router>
-        <Header title="Remidol" />
         <div className="container">
+          <Header title="Remidol" />
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route
               path="/grocery"
               element={
-                <>
+                <div className="inner-container">
                   <TaskForm />
                   <IncompletedStats />
                   <IncompletedList />
                   <CompletedStats />
                   <CompletedList />
-                </>
+                </div>
               }
             />
           </Routes>
+          <Footer title="Remidol" />
         </div>
-        <Footer title="Remidol" />
       </Router>
     </AppProvider>
   );

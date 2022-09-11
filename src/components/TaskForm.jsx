@@ -25,8 +25,8 @@ function TaskForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { name, amount, unit } = addTask;
-    if (name && amount && unit) {
+    const { name, amount } = addTask;
+    if (name && amount) {
       addTask.id = uuidv4();
       addNewTask(addTask);
       setAddTask({ name: '', amount: '', unit: '' });

@@ -8,30 +8,27 @@
 
 body {
   font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-image: url('../public/images/dark_wooden.jpg');
-  background-color: #202142;
+  background-color: #202026;
   color: #fff;
   line-height: 1.6;
+  height: 100vh;
 }
 
 ul {
   list-style: none;
 }
 
-#root {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: 100vh;
-}
-
 header {
-  background-color: rgba(0, 0, 0, 0.6);
-  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 50px;
   margin-bottom: 30px;
   padding: 10px;
 }
@@ -49,11 +46,16 @@ header a:hover {
 .container {
   display: flex;
   flex-direction: column;
-  background-image: url(../public/images/shopping-cart.jpg);
+  justify-content: space-between;
   width: 768px;
-  max-height: 800px;
+  height: 100vh;
+}
+
+.inner-container {
+  width: 100%;
   padding: 20px;
-  overflow: auto;
+  background-image: url(../public/images/shopping-cart.jpg);
+  box-shadow: 15px 15px 15px 1px #000;
 }
 
 .nav {
@@ -61,6 +63,7 @@ header a:hover {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 1px;
+  box-shadow: 15px 15px 15px 1px #000;
 }
 
 .nav .child {
@@ -266,7 +269,7 @@ footer {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.7);
   width: 100%;
   padding: 10px;
   margin-top: 30px;
@@ -311,8 +314,9 @@ footer {
     filter: none;
   }
   .container {
-    max-width: 100%;
+    max-width: 90vw;
   }
+
   .input-group {
     flex-direction: column;
     align-items: flex-start;
