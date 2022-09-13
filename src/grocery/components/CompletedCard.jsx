@@ -1,23 +1,22 @@
 import { useState, useContext } from 'react';
-import AppContext from '../Context/AppContext';
-import * as FaIcons from 'react-icons/fa';
+import AppContext from '../../Context/AppContext';
+import { FaTimes } from 'react-icons/fa';
 
-function IncompletedCard({ task }) {
-  const [isCompleted, setIsCompleted] = useState(false);
+function CompletedCard({ task }) {
+  const [isCompleted, setIsCompleted] = useState(true);
   const [isHover, setIsHover] = useState(false);
-  const { detachCompleted, deleteTask, editTask } = useContext(AppContext);
+  const { undoCompleted, deleteTask } = useContext(AppContext);
 
   const taskCardStyle = {
     color: isHover ? 'transparent' : '',
-    textShadow: isHover ? '0 0 black' : '',
-    border: isHover && '2px solid #333',
-    opacity: isHover ? '1' : '0.9',
+    textShadow: isHover ? '0 0 gold' : '',
+    border: isHover && '2px solid gold',
   };
 
   const taskCompleted = () => {
     setIsCompleted((prev) => !prev);
-    if (!isCompleted) {
-      detachCompleted(task);
+    if (isCompleted) {
+      undoCompleted(task);
     }
   };
 
@@ -32,13 +31,10 @@ function IncompletedCard({ task }) {
       <div className="num-display">{`${task.amount} ${task.unit}`}</div>
       <div className="text-display">{task.name}</div>
       <button className="close" onClick={(event) => deleteTask(event, task)}>
-        <FaIcons.FaTimes size="1rem" color="red" />
-      </button>
-      <button className="edit" onClick={(event) => editTask(event, task)}>
-        <FaIcons.FaEdit size="1rem" color="#333" />
+        <FaTimes size="1rem" color="red" />
       </button>
     </div>
   );
 }
 
-export default IncompletedCard;
+export default CompletedCard;

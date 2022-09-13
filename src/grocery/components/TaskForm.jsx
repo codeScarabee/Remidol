@@ -1,7 +1,8 @@
-import { FaPlusCircle, FaArrowAltCircleDown } from 'react-icons/fa';
 import { useState, useEffect, useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import AppContext from '../Context/AppContext';
+import AppContext from '../../Context/AppContext';
+import Button from '../../shared/Button';
+import { FaArrowAltCircleDown, FaPlusCircle } from 'react-icons/fa';
 
 function TaskForm() {
   const [addTask, setAddTask] = useState({ name: '', amount: '', unit: '', icon: '' });
@@ -58,6 +59,7 @@ function TaskForm() {
   const data = ['Bread', 'Butter', 'Milk', 'Potatoes', 'Tomato', 'Oil', 'Eggs', 'Apples', 'Bananas'];
   return (
     <>
+      <h1>Grocery</h1>
       <form onSubmit={handleSubmit}>
         <div className="input-group" style={inputStyle}>
           <input
@@ -92,9 +94,9 @@ function TaskForm() {
             <option value="oz">oz</option>
           </select>
         </div>
-        <button type="submit" style={btnStyle}>
+        <Button type="submit" isClicked={isClicked} style={btnStyle}>
           {isClicked ? <FaArrowAltCircleDown size={48} color="gold" /> : <FaPlusCircle size={48} color="gold" />}
-        </button>
+        </Button>
       </form>
       {message && <div className="message">{message}</div>}
     </>

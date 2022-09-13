@@ -1,13 +1,13 @@
 import { AppProvider } from './Context/AppContext';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
 import Home from './pages/Home';
-import IncompletedList from './components/IncompletedList';
-import IncompletedStats from './components/IncompletedStats';
-import CompletedStats from './components/CompletedStats';
-import CompletedList from './components/CompletedList';
-import TaskForm from './components/TaskForm';
-import Footer from './components/Footer';
+import Header from './grocery/components/Header';
+import IncompletedList from './grocery/components/IncompletedList';
+import IncompletedStats from './grocery/components/IncompletedStats';
+import CompletedStats from './grocery/components/CompletedStats';
+import CompletedList from './grocery/components/CompletedList';
+import TaskForm from './grocery/components/TaskForm';
+import Footer from './grocery/components/Footer';
 
 function App() {
   return (

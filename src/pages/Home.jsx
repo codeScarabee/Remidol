@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 function Home() {
   return (
     <nav className="nav">
-      <Link to="/grocery">
-        <div className="child">
+      <div className="child">
+        <Link to="/grocery">
           <img src="images/grocery.jpeg" alt="grocery" />
-        </div>
-      </Link>
+        </Link>
+      </div>
       <div className="child">
         <img src="images/pharma.jpg" alt="medicaments" />
       </div>

@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useContext } from 'react';
-import AppContext from '../Context/AppContext';
+import AppContext from '../../Context/AppContext';
 import CompletedCard from './CompletedCard';
 
 function CompletedList() {

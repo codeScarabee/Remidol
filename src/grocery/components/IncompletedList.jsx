@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import AppContext from '../Context/AppContext';
+import AppContext from '../../Context/AppContext';
 import { useContext } from 'react';
 import IncompletedCard from './IncompletedCard';
 
